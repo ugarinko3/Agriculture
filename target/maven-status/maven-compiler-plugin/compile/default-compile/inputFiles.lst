@@ -1,0 +1,12 @@
+/Users/ellieene/Agriculture/src/main/java/org/example/repository/FarmerRepository.java
+/Users/ellieene/Agriculture/src/main/java/org/example/controller/FarmerController.java
+/Users/ellieene/Agriculture/src/main/java/org/example/model/entity/District.java
+/Users/ellieene/Agriculture/src/main/java/org/example/model/request/GetFarmersRequest.java
+/Users/ellieene/Agriculture/src/main/java/org/example/model/entity/Farmer.java
+/Users/ellieene/Agriculture/src/main/java/org/example/repository/DistrictRepository.java
+/Users/ellieene/Agriculture/src/main/java/org/example/config/specification/DistrictSpecifications.java
+/Users/ellieene/Agriculture/src/main/java/org/example/service/FarmerService.java
+/Users/ellieene/Agriculture/src/main/java/org/example/AgricultureApplication.java
+/Users/ellieene/Agriculture/src/main/java/org/example/controller/DistrictController.java
+/Users/ellieene/Agriculture/src/main/java/org/example/config/specification/FarmerSpecification.java
+/Users/ellieene/Agriculture/src/main/java/org/example/service/DistrictService.java

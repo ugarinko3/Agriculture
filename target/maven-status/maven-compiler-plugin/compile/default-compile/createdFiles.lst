@@ -1,0 +1,12 @@
+org/example/service/FarmerService.class
+org/example/service/DistrictService.class
+org/example/model/entity/Farmer.class
+org/example/model/request/GetFarmersRequest.class
+org/example/repository/DistrictRepository.class
+org/example/controller/DistrictController.class
+org/example/config/specification/FarmerSpecification.class
+org/example/AgricultureApplication.class
+org/example/repository/FarmerRepository.class
+org/example/controller/FarmerController.class
+org/example/config/specification/DistrictSpecifications.class
+org/example/model/entity/District.class
