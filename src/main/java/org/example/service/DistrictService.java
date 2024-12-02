@@ -1,14 +1,12 @@
 package org.example.service;
 
-
-import lombok.AllArgsConstructor;
-import org.example.config.specification.DistrictSpecifications;
+import lombok.RequiredArgsConstructor;
+import org.example.config.specification.DistrictSpecification;
 import org.example.exception.EntityNotFoundException;
 import org.example.exception.ValidationException;
 import org.example.model.dto.DistrictDto;
-import org.example.model.dto.FarmerDto;
 import org.example.model.entity.District;
-import org.example.model.request.CreateDistrictRequest;
+import org.example.model.request.CreateUpdateDistrictRequest;
 import org.example.repository.DistrictRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -18,41 +16,39 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class DistrictService {
 
     private final DistrictRepository districtRepository;
     private final ModelMapper modelMapper;
 
-
     /**
      * Получение списка районов, внесенных в реестр.
      * Реализовать фильтрацию возвращаемого списка по названию и коду района.
      *
-     * @param name
-     * @param code
+     * @param name название района
+     * @param code код района
      * @return Список районов
      */
     public List<DistrictDto> getFilteredDistricts(String name, Integer code) {
         Specification<District> specification = Specification
-                .where(DistrictSpecifications.hasName(name))
-                .and(DistrictSpecifications.hasCode(code))
-                .and(DistrictSpecifications.isNotArchived());
-        return modelMapper
-                        .map(districtRepository.findAll(specification), new TypeToken<List<DistrictDto>>() {
-                        }.getType());
+            .where(DistrictSpecification.hasName(name))
+            .and(DistrictSpecification.hasCode(code))
+            .and(DistrictSpecification.isNotArchived());
+        return modelMapper.map(districtRepository.findAll(specification),
+                new TypeToken<List<DistrictDto>>() {}.getType());
     }
 
     /**
      * Добавление района
      *
-     * @param createDistrictRequest
-     * @return UUID
+     * @param createUpdateDistrictRequest запрос на создание района
+     * @return ID района
      */
-    public UUID createDistrict(CreateDistrictRequest createDistrictRequest) {
-        validationDistrict(createDistrictRequest);
-        District district = modelMapper.map(createDistrictRequest, District.class);
+    public UUID createDistrict(CreateUpdateDistrictRequest createUpdateDistrictRequest) {
+        validationDistrict(createUpdateDistrictRequest);
+        District district = modelMapper.map(createUpdateDistrictRequest, District.class);
         districtRepository.save(district);
         return district.getId();
 
@@ -61,31 +57,33 @@ public class DistrictService {
     /**
      * Отправить в архив
      *
-     * @param districtId
-     * @throws org.springframework.web.client.HttpClientErrorException.NotFound
+     * @param districtId ID района
+     * @throws EntityNotFoundException Район не найден
      */
     public void sendToArchive(UUID districtId) {
-        District district = districtRepository.findById(districtId).orElseThrow(() -> new EntityNotFoundException(String.format("Район с ID %s не найден", districtId)));
+        District district = districtRepository.findById(districtId)
+                .orElseThrow(() -> new EntityNotFoundException(String.format("Район с ID %s не найден", districtId)));
         district.setStatus(true);
         districtRepository.save(district);
     }
 
     /**
-     * Изменение в Районе
+     * Изменение района
      *
-     * @param createDistrictRequest
-     * @param id
+     * @param createUpdateDistrictRequest запрос на изменение района
+     * @param districtId ID района
      */
-    public void editDistrict(UUID id, CreateDistrictRequest createDistrictRequest) {
-        District district = districtRepository.findById(id).orElseThrow(() -> new ValidationException(String.format("Район с ID %s не найден", id)));
-        validationDistrict(createDistrictRequest);
-        modelMapper.map(createDistrictRequest, district);
+    public void editDistrict(UUID districtId, CreateUpdateDistrictRequest createUpdateDistrictRequest) {
+        District district = districtRepository.findById(districtId)
+                .orElseThrow(() -> new ValidationException(String.format("Район с ID %s не найден", districtId)));
+        validationDistrict(createUpdateDistrictRequest);
+        modelMapper.map(createUpdateDistrictRequest, district);
         districtRepository.save(district);
     }
 
-    private void validationDistrict(CreateDistrictRequest district) {
+    private void validationDistrict(CreateUpdateDistrictRequest district) {
         if (district.getName() == null || district.getName().trim().isEmpty()) {
-            throw new ValidationException("Имя является обязательным полем.");
+            throw new ValidationException("Имя является обязательным полем");
         }
     }
 }

@@ -1,13 +1,11 @@
 package org.example.controller;
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.example.model.dto.DistrictDto;
-import org.example.model.entity.District;
-import org.example.model.request.CreateDistrictRequest;
+import org.example.model.request.CreateUpdateDistrictRequest;
 import org.example.service.DistrictService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,32 +14,31 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@AllArgsConstructor
+@Tag(name = "District API", description = "API для управления районами")
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/districts")
-@Tag(name = "District API", description = "API для управления районами")
 public class DistrictController {
 
     private final DistrictService districtService;
 
-
     /**
      * Создание района
      *
-     * @param createDistrictRequest
-     * @return UUID
+     * @param createUpdateDistrictRequest запрос на создание района
+     * @return UUID района
      */
     @Operation(summary = "Создать район", description = "UUID района")
     @PostMapping
-    public ResponseEntity<UUID> createDistrict(@RequestBody CreateDistrictRequest createDistrictRequest) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(districtService.createDistrict(createDistrictRequest));
+    public ResponseEntity<UUID> createDistrict(@RequestBody CreateUpdateDistrictRequest createUpdateDistrictRequest) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(districtService.createDistrict(createUpdateDistrictRequest));
     }
-
 
     /**
      * Добавление района в архив
      *
-     * @param districtId
+     * @param districtId ID района
      */
     @Operation(summary = "Переводит район в архив", description = "UUID района")
     @DeleteMapping("/{districtId}")
@@ -53,8 +50,8 @@ public class DistrictController {
     /**
      * Поиск района
      *
-     * @param name
-     * @param code
+     * @param name название района
+     * @param code код района
      * @return List {@link DistrictDto}
      */
     @Operation(summary = "Получить все районы", description = "Возвращает список всех районов с возможностью фильтрации")
@@ -68,15 +65,14 @@ public class DistrictController {
     /**
      * Изменение района
      *
-     * @param createDistrictRequest
+     * @param createUpdateDistrictRequest запрос на обновление района
      * @return UUID
      */
     @Operation(summary = "Изменение района", description = "UUID района")
     @PutMapping("{districtId}")
-    public ResponseEntity<Void> editDistrict(@PathVariable UUID districtId, @RequestBody CreateDistrictRequest createDistrictRequest) {
-        districtService.editDistrict(districtId , createDistrictRequest);
+    public ResponseEntity<Void> editDistrict(@PathVariable UUID districtId,
+                                             @RequestBody CreateUpdateDistrictRequest createUpdateDistrictRequest) {
+        districtService.editDistrict(districtId , createUpdateDistrictRequest);
         return ResponseEntity.ok().build();
     }
-
-
 }

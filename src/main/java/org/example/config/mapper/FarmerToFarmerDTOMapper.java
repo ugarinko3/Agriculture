@@ -12,7 +12,6 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 /**
  * Кастомный Mapper, из такого объекта
  * {@link Farmer}, в {@link FarmerDto}.

@@ -31,5 +31,3 @@ public class District {
     @Column(name = "status")
     private boolean status;
 }
-
-

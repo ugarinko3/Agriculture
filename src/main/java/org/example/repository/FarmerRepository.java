@@ -1,6 +1,5 @@
 package org.example.repository;
 
-import org.example.model.entity.District;
 import org.example.model.entity.Farmer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

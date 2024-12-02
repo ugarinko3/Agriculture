@@ -2,20 +2,19 @@ package org.example.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.example.model.dto.FarmerDto;
-import org.example.model.entity.Farmer;
-import org.example.model.request.CreateFarmerRequest;
+import org.example.model.request.CreateUpdateFarmerRequest;
 import org.example.model.request.GetFarmersRequest;
 import org.example.service.FarmerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/farmers")
 @Tag(name = "Farmer API", description = "API для управления фермерами")
@@ -24,9 +23,9 @@ public class FarmerController {
     private final FarmerService farmerService;
 
     /**
-     * Поиск Фермера по фильтрам
+     * Поиск фермеров с фильтрацией
      *
-     * @param getFarmersRequest JSON
+     * @param getFarmersRequest запрос на фильтрацию фермеров
      * @return List {@link FarmerDto}
      */
     @Operation(summary = "Получить всех фермеров", description = "Возвращает список фермеров")
@@ -35,30 +34,36 @@ public class FarmerController {
         return ResponseEntity.ok(farmerService.findFarmers(getFarmersRequest));
     }
 
-
     /**
-     * Создание Фермера
+     * Создание фермера
      *
-     * @param createFarmerRequest
+     * @param createUpdateFarmerRequest запрос на создание фермера
      * @return UUID
      */
     @Operation(summary = "Создание фермера", description = "Возвращает UUID фермера")
     @PostMapping
-    public ResponseEntity<UUID> createFarmer(@RequestBody @Valid CreateFarmerRequest createFarmerRequest) {
-        return ResponseEntity.ok(farmerService.createFarmer(createFarmerRequest));
+    public ResponseEntity<UUID> createFarmer(@RequestBody @Valid CreateUpdateFarmerRequest createUpdateFarmerRequest) {
+        return ResponseEntity.ok(farmerService.createFarmer(createUpdateFarmerRequest));
     }
 
-    @Operation(summary = "Измененние фермера", description = "Возвращает UUID фермера")
-    @PutMapping("{fermerId}")
-    public ResponseEntity<UUID> changeFarmer(@PathVariable UUID fermerId, @RequestBody CreateFarmerRequest farmer) {
-        farmerService.changeFarmer(fermerId, farmer);
+    /**
+     * Изменение фермера по ID
+     *
+     * @param farmerId ID фермера
+     * @param request запрос на изменение фермера
+     */
+    @Operation(summary = "Измененние фермера")
+    @PutMapping("{farmerId}")
+    public ResponseEntity<Void> changeFarmer(@PathVariable UUID farmerId,
+                                             @RequestBody CreateUpdateFarmerRequest request) {
+        farmerService.changeFarmer(farmerId, request);
         return ResponseEntity.ok().build();
     }
 
     /**
-     * Добавление Фермера в архив
+     * Добавление фермера в архив
      *
-     * @param farmerId
+     * @param farmerId ID фермера
      */
     @Operation(summary = "Перемещение фермера в архив")
     @DeleteMapping("/{farmerId}")
@@ -68,15 +73,15 @@ public class FarmerController {
     }
 
     /**
-     * Поиск вермера по UUID
+     * Поиск фермера по UUID
      *
-     * @param farmerId
+     * @param farmerId ID фермера
      * @return {@link FarmerDto}
      */
     @Operation(summary = "Найти по ID", description = "Возвращает FarmerDto")
     @GetMapping("/{farmerId}")
     public ResponseEntity<FarmerDto> farmerById(@PathVariable UUID farmerId) {
-        return ResponseEntity.ok(farmerService.farmerById(farmerId));
+        return ResponseEntity.ok(farmerService.getFarmerById(farmerId));
     }
 
 }

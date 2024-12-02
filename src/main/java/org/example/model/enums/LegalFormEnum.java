@@ -4,19 +4,15 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
-
 /**
  * Проверка на организационно-правовая форма
  */
 @RequiredArgsConstructor
 public enum LegalFormEnum {
-    UR("Юридическое лицо", "ЮЛ"),
-    IP("Индивидуальный предприниматель", "ИП"),
-    FL("Физическое лицо", "ФЛ");
-
-    private final String description;
+    UR("ЮЛ"),
+    IP("ИП"),
+    FL("ФЛ");
     private final String code;
-
 
     public static boolean isExistByCode(String code) {
         return Arrays.stream(values()).anyMatch(

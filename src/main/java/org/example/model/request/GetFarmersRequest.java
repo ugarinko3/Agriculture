@@ -1,8 +1,7 @@
 package org.example.model.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -10,8 +9,7 @@ import java.util.UUID;
 /**
  * Фильтры для поиска
  */
-@Setter
-@Getter
+@Data
 public class GetFarmersRequest {
     @Schema(name = "name", description = "Название организации")
     private String name;
@@ -27,5 +25,4 @@ public class GetFarmersRequest {
 
     @Schema(name = "archiveStatus", description = "Статус архивности")
     private boolean archiveStatus;
-
 }

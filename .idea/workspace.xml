@@ -5,9 +5,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5dc4947-a175-4e9e-b6af-708a5c566ea8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/create_db.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/NotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a26dbd3f-6129-48f5-b1b9-9fc9f3716c28.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a26dbd3f-6129-48f5-b1b9-9fc9f3716c28.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a26dbd3f-6129-48f5-b1b9-9fc9f3716c28/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a26dbd3f-6129-48f5-b1b9-9fc9f3716c28/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/mapper/CreateRequestToFarmerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/mapper/CreateRequestToFarmerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/mapper/FarmerToFarmerDTOMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/mapper/FarmerToFarmerDTOMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/specification/DistrictSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/specification/DistrictSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/specification/FarmerSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/specification/FarmerSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/specification/ModelMapperConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/ModelMapperConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/swagger/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/DistrictController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/DistrictController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/FarmerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/FarmerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/dto/DistrictDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/dto/DistrictDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/dto/FarmerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/dto/FarmerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/entity/District.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/entity/District.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/entity/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/entity/Farmer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/enums/LegalFormEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/enums/LegalFormEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/request/CreateDistrictRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/request/CreateUpdateDistrictRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/request/CreateFarmerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/request/CreateUpdateFarmerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/request/GetFarmersRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/request/GetFarmersRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/DistrictRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/DistrictRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/FarmerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/FarmerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/DistrictService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/DistrictService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/FarmerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/FarmerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Agriculture-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Agriculture-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Agriculture-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/Agriculture-1.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/AgricultureApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/AgricultureApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/config/mapper/CreateRequestToFarmerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/config/mapper/CreateRequestToFarmerMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/config/mapper/FarmerToFarmerDTOMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/config/mapper/FarmerToFarmerDTOMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/config/specification/DistrictSpecifications.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/config/specification/FarmerSpecification.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/config/specification/FarmerSpecification.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/config/specification/ModelMapperConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/config/swagger/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/controller/DistrictController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/controller/DistrictController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/controller/FarmerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/controller/FarmerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/exception/EntityNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/exception/EntityNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/exception/ValidationException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/exception/ValidationException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/dto/DistrictDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/dto/DistrictDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/dto/FarmerDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/dto/FarmerDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/entity/District.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/entity/District.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/entity/Farmer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/entity/Farmer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/enums/LegalFormEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/enums/LegalFormEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/request/CreateDistrictRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/request/CreateFarmerRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/request/GetFarmersRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/request/GetFarmersRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/repository/DistrictRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/repository/DistrictRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/repository/FarmerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/repository/FarmerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/DistrictService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/DistrictService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/DistrictService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/DistrictService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/FarmerService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/FarmerService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/FarmerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/FarmerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +78,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Exception" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -62,9 +121,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -102,8 +162,8 @@
     <configuration default="true" type="LiferayServerConfiguration" factoryName="Liferay Server">
       <Liferay-Sever alternativeJrePath="" bundleLocation="" bundleType="" developerMode="true" gogoShellPort="11311" vmParameters="-Xmx2560m -XX:MaxMetaspaceSize=768m -XX:MetaspaceSize=768m">
         <envs>
-          <env name="PATH" value="/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home/bin:/usr/bin:/bin:/usr/sbin:/sbin" />
-          <env name="JAVA_HOME" value="/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home" />
+          <env name="PATH" value="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home/bin:/usr/bin:/bin:/usr/sbin:/sbin" />
+          <env name="JAVA_HOME" value="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home" />
         </envs>
         <module name="Agriculture" />
       </Liferay-Sever>
@@ -155,7 +215,10 @@
       <workItem from="1733063585645" duration="151000" />
       <workItem from="1733063826514" duration="2348000" />
       <workItem from="1733075551303" duration="11432000" />
-      <workItem from="1733127159773" duration="12471000" />
+      <workItem from="1733127159773" duration="18708000" />
+      <workItem from="1733154336726" duration="2470000" />
+      <workItem from="1733157489239" duration="2336000" />
+      <workItem from="1733160617443" duration="3402000" />
     </task>
     <servers />
   </component>

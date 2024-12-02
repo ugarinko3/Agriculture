@@ -37,7 +37,7 @@ public class FarmerDto {
     @Schema(name = "registrationDistrict", description = "Район регистрации")
     private String registrationDistrict;
 
-    @Schema(name = "farmar_district", description = "Районы посевных полей")
+    @Schema(name = "farmer_district", description = "Районы посевных полей")
     private List<String> fieldDistricts;
 
     @Schema(name = "registrationDate", description = "Дата регистрации")

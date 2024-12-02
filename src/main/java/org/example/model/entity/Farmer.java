@@ -10,9 +10,8 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Сущность, представляющая организацию с атрибутами:
+ * Сущность, представляющая организацию с атрибутами
  */
-
 @Setter
 @Getter
 @Entity

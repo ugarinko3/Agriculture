@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.UUID;
 
 /**
- * DTO для Distruct
+ * DTO для District
  */
 @Data
 public class DistrictDto {

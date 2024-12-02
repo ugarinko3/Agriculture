@@ -1,5 +1,6 @@
 package org.example.config.specification;
 
+import lombok.experimental.UtilityClass;
 import org.example.model.entity.Farmer;
 import org.springframework.data.jpa.domain.Specification;
 
@@ -10,6 +11,7 @@ import java.util.UUID;
  * Предоставляет утилитные методы для создания JPA {@link Specification}
  * для фильтрации сущностей {@link Farmer} на основе различных критериев.
  */
+@UtilityClass
 public class FarmerSpecification {
 
     /**
