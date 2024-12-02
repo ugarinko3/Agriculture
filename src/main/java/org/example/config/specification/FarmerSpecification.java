@@ -22,7 +22,7 @@ public class FarmerSpecification {
     public static Specification<Farmer> hasName(String name) {
         return (root, query, criteriaBuilder) ->
                 name != null && !name.isEmpty() ?
-                        criteriaBuilder.like(criteriaBuilder.lower(root.get("name")), "%" + name.toLowerCase() + "%")
+                        criteriaBuilder.equal(root.get("name"), name)
                         : null;
     }
 
@@ -32,7 +32,7 @@ public class FarmerSpecification {
      * @param inn ИНН фермера для фильтрации; если значение равно {@code null}, фильтр не применяется.
      * @return {@link Specification} для фильтрации фермеров по ИНН или {@code null}, если ИНН некорректен.
      */
-    public static Specification<Farmer> hasInn(Integer inn) {
+    public static Specification<Farmer> hasInn(Long inn) {
         return (root, query, criteriaBuilder) ->
                 inn != null ? criteriaBuilder.equal(root.get("inn"), inn) : null;
     }
@@ -66,7 +66,8 @@ public class FarmerSpecification {
      *
      * @return {@link Specification} для исключения архивных фермеров.
      */
-    public static Specification<Farmer> isNotArchived() {
-        return (root, query, criteriaBuilder) -> criteriaBuilder.isFalse(root.get("archiveStatus"));
+    public static Specification<Farmer> isNotArchived(boolean archived) {
+        return (root, query, criteriaBuilder) ->
+               !archived ? criteriaBuilder.isFalse(root.get("archiveStatus")) : criteriaBuilder.isTrue(root.get("archiveStatus"));
     }
 }

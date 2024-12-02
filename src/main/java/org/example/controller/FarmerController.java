@@ -29,7 +29,7 @@ public class FarmerController {
      * @param getFarmersRequest JSON
      * @return List {@link FarmerDto}
      */
-    @Operation(summary = "Поиск фермера", description = "Возвращает список фермеров")
+    @Operation(summary = "Получить всех фермеров", description = "Возвращает список фермеров")
     @PostMapping("/find")
     public ResponseEntity<List<FarmerDto>> findFarmer(@RequestBody(required = false) GetFarmersRequest getFarmersRequest) {
         return ResponseEntity.ok(farmerService.findFarmers(getFarmersRequest));
@@ -49,21 +49,22 @@ public class FarmerController {
     }
 
     @Operation(summary = "Измененние фермера", description = "Возвращает UUID фермера")
-    @PutMapping
-    public ResponseEntity<UUID> changeFarmer(@RequestBody Farmer farmer) {
-        return ResponseEntity.ok(farmerService.changeFarmer(farmer));
+    @PutMapping("{fermerId}")
+    public ResponseEntity<UUID> changeFarmer(@PathVariable UUID fermerId, @RequestBody CreateFarmerRequest farmer) {
+        farmerService.changeFarmer(fermerId, farmer);
+        return ResponseEntity.ok().build();
     }
 
     /**
      * Добавление Фермера в архив
      *
      * @param farmerId
-     * @return UUID
      */
     @Operation(summary = "Перемещение фермера в архив")
     @DeleteMapping("/{farmerId}")
-    public ResponseEntity<UUID> sendToArchiveFarmer(@PathVariable UUID farmerId) {
-        return ResponseEntity.ok(farmerService.sendToArchiveFarmer(farmerId));
+    public ResponseEntity<Void> sendToArchiveFarmer(@PathVariable UUID farmerId) {
+        farmerService.sendToArchiveFarmer(farmerId);
+        return ResponseEntity.ok().build();
     }
 
     /**
@@ -72,6 +73,7 @@ public class FarmerController {
      * @param farmerId
      * @return {@link FarmerDto}
      */
+    @Operation(summary = "Найти по ID", description = "Возвращает FarmerDto")
     @GetMapping("/{farmerId}")
     public ResponseEntity<FarmerDto> farmerById(@PathVariable UUID farmerId) {
         return ResponseEntity.ok(farmerService.farmerById(farmerId));

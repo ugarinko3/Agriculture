@@ -39,13 +39,10 @@ public class FarmerService {
                 .and(FarmerSpecification.hasInn(getFarmersRequest.getInn()))
                 .and(FarmerSpecification.hasDistrict(getFarmersRequest.getRegistrationDistrictId()))
                 .and(FarmerSpecification.hasDate(getFarmersRequest.getRegistrationDate()))
-                .and(FarmerSpecification.isNotArchived());
+                .and(FarmerSpecification.isNotArchived(getFarmersRequest.isArchiveStatus()));
 
-        List<Farmer> farmers = farmerRepository.findAll(specification);
-        if (farmers.isEmpty()) {
-            throw new EntityNotFoundException("Список оказался пуст, попробуйте убрать пару фильтров");
-        }
-        return modelMapper.map(farmers, new TypeToken<List<FarmerDto>>() {
+        return modelMapper
+                .map(farmerRepository.findAll(specification), new TypeToken<List<FarmerDto>>() {
         }.getType());
     }
 
@@ -56,8 +53,8 @@ public class FarmerService {
      * @return UUID
      */
     public UUID createFarmer(CreateFarmerRequest createFarmerRequest) {
+        validateFarmer(createFarmerRequest);
         Farmer farmer = modelMapper.map(createFarmerRequest, Farmer.class);
-        validateFarmer(farmer);
         farmerRepository.save(farmer);
         return farmer.getId();
     }
@@ -66,32 +63,24 @@ public class FarmerService {
      * Добавление в архив
      *
      * @param farmerId
-     * @return UUID
      */
-    public UUID sendToArchiveFarmer(UUID farmerId) {
-        return farmerRepository.findById(farmerId)
-                .map(farmer -> {
-                    farmer.setArchiveStatus(true);
-                    validateFarmer(farmer);
-                    farmerRepository.save(farmer);
-                    return farmerId;
-                }).orElseThrow(() -> new EntityNotFoundException(String.format("Ошибка добавления фермера с ID %s в архив", farmerId)));
+    public void sendToArchiveFarmer(UUID farmerId) {
+        Farmer farmer = farmerRepository.findById(farmerId).orElseThrow(() -> new EntityNotFoundException(String.format("Ошибка добавления фермера с ID %s в архив", farmerId)));
+        farmer.setArchiveStatus(true);
+        farmerRepository.save(farmer);
     }
 
     /**
      * Изменение Фермера
      *
-     * @param farmer
-     * @return UUID
+     * @param createFarmerRequest
+     * @param farmerId
      */
-    public UUID changeFarmer(Farmer farmer) {
-        return farmerRepository.findById(farmer.getId())
-                .map(changeFarmer -> {
-                    validateFarmer(farmer);
-                    farmerRepository.save(changeFarmer);
-                    return changeFarmer.getId();
-                }).orElseThrow(() -> new EntityNotFoundException(String.format("Ошибка! Фермер с ID %s не обнаружен", farmer.getId())));
-
+    public void changeFarmer(UUID farmerId ,CreateFarmerRequest createFarmerRequest) {
+        validateFarmer(createFarmerRequest);
+        Farmer farmer = farmerRepository.findById(farmerId).orElseThrow(() -> new EntityNotFoundException(String.format("Ошибка! Фермер с ID %s не обнаружен", farmerId)));
+        modelMapper.map(createFarmerRequest, farmer);
+        farmerRepository.save(farmer);
     }
 
     /**
@@ -105,15 +94,15 @@ public class FarmerService {
         return modelMapper.map(farmer, FarmerDto.class);
     }
 
-    private void validateFarmer(Farmer farmer) {
+    private void validateFarmer(CreateFarmerRequest farmer) {
         if (!LegalFormEnum.isExistByCode(farmer.getLegalForm())) {
-            throw new ValidationException("Организационно-правовая форма введена не верно, допустимые значения: ИП, ФЗ, ЮЛ");
+            throw new ValidationException("Организационно-правовая форма введена не верно, допустимые значения: ИП, ФЛ, ЮЛ");
         }
         if (farmer.getName() == null || farmer.getName().trim().isEmpty()) {
-            throw new ValidationException("Имя введено неверно");
+            throw new ValidationException("Имя является обязательным полем");
         }
         if (farmer.getInn() == null || farmer.getInn() < 0) {
-            throw new ValidationException("ИНН введено неверно");
+            throw new ValidationException("ИНН не заполено или введено неверно");
         }
     }
 }

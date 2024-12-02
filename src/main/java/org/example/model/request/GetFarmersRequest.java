@@ -17,9 +17,9 @@ public class GetFarmersRequest {
     private String name;
 
     @Schema(name = "inn", description = "ИНН")
-    private Integer inn;
+    private Long inn;
 
-    @Schema(name = "registrationDistrict", description = "Район регистрации")
+    @Schema(name = "registrationDistrictId", description = "Район регистрации")
     private UUID registrationDistrictId;
 
     @Schema(name = "registrationDate", description = "Дата регистрации")

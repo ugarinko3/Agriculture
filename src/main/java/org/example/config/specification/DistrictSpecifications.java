@@ -18,9 +18,7 @@ public class DistrictSpecifications {
      */
     public static Specification<District> hasName(String name) {
         return (root, query, criteriaBuilder) ->
-                name != null && !name.isEmpty() ?
-                        criteriaBuilder.like(criteriaBuilder.lower(root.get("name")), "%" + name.toLowerCase() + "%")
-                        : null;
+                name != null ? criteriaBuilder.equal(root.get("name"), name) : null;
     }
 
     /**

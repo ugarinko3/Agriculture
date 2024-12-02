@@ -5,7 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5dc4947-a175-4e9e-b6af-708a5c566ea8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/specification/DistrictSpecifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/specification/DistrictSpecifications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/specification/FarmerSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/specification/FarmerSpecification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/DistrictController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/DistrictController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/FarmerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/FarmerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/enums/LegalFormEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/enums/LegalFormEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/request/CreateFarmerRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/request/CreateFarmerRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/request/GetFarmersRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/request/GetFarmersRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/DistrictService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/DistrictService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/FarmerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/FarmerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/config/specification/DistrictSpecifications.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/config/specification/DistrictSpecifications.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/config/specification/FarmerSpecification.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/config/specification/FarmerSpecification.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/controller/DistrictController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/controller/DistrictController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/controller/FarmerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/controller/FarmerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/enums/LegalFormEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/enums/LegalFormEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/request/CreateFarmerRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/request/CreateFarmerRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/model/request/GetFarmersRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/model/request/GetFarmersRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/DistrictService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/DistrictService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/FarmerService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/FarmerService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/service/FarmerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/service/FarmerService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +42,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Exception" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -37,39 +62,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.AgricultureApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Agriculture [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Agriculture [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Agriculture [dependency:resolve].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Agriculture [install].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AgricultureApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ellieene/Agriculture&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AgricultureApplication.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "Maven.Agriculture [clean].executor": "Run",
+    "Maven.Agriculture [compile].executor": "Run",
+    "Maven.Agriculture [dependency:resolve].executor": "Run",
+    "Maven.Agriculture [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.AgricultureApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/ellieene/Test/Agriculture",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.model.dto" />
@@ -80,7 +106,7 @@
       <command value="mvn dependency:resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AgricultureApplication">
+  <component name="RunManager" selected="Application.AgricultureApplication">
     <configuration name="AgricultureApplication" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.example.AgricultureApplication" />
       <module name="Agriculture" />
@@ -89,6 +115,21 @@
       </method>
     </configuration>
     <configuration name="Unnamed" type="CompoundRunConfigurationType">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="LiferayDockerServerConfiguration" factoryName="Liferay Docker Server">
+      <option name="passParentEnvironments" value="true" />
+      <option name="workspaceLocation" value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="LiferayServerConfiguration" factoryName="Liferay Server">
+      <Liferay-Sever alternativeJrePath="" bundleLocation="" bundleType="" developerMode="true" gogoShellPort="11311" vmParameters="-Xmx2560m -XX:MaxMetaspaceSize=768m -XX:MetaspaceSize=768m">
+        <envs>
+          <env name="PATH" value="/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home/bin:/usr/bin:/bin:/usr/sbin:/sbin" />
+          <env name="JAVA_HOME" value="/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home" />
+        </envs>
+        <module name="Agriculture" />
+      </Liferay-Sever>
       <method v="2" />
     </configuration>
     <configuration name="AgricultureApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -134,6 +175,10 @@
       <workItem from="1732981428979" duration="17785000" />
       <workItem from="1733038396854" duration="18339000" />
       <workItem from="1733062221985" duration="80000" />
+      <workItem from="1733063585645" duration="151000" />
+      <workItem from="1733063826514" duration="2348000" />
+      <workItem from="1733075551303" duration="11432000" />
+      <workItem from="1733127159773" duration="9787000" />
     </task>
     <servers />
   </component>

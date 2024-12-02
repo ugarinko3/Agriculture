@@ -45,12 +45,12 @@ public class CreateFarmerRequest {
             example = "4425345435")
     private String ogrn;
 
-    @Schema(name = "registrationDistrict",
+    @Schema(name = "registrationDistrictId",
             description = "Район регистрации",
             example = "701684f7-c875-4bdc-8dac-3057dfc2c93e")
     private UUID registrationDistrictId;
 
-    @Schema(name = "farmar_district",
+    @Schema(name = "fieldDistrictsIds",
             description = "Районы посевных полей",
             example = "[\"701684f7-c875-4bdc-8dac-3057dfc2c932\", \"0dafaed3-8b26-427c-83bb-a006270a76b3\"]")
     private List<UUID> fieldDistrictsIds;

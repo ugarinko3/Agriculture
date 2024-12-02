@@ -5,10 +5,13 @@ import lombok.AllArgsConstructor;
 import org.example.config.specification.DistrictSpecifications;
 import org.example.exception.EntityNotFoundException;
 import org.example.exception.ValidationException;
+import org.example.model.dto.DistrictDto;
+import org.example.model.dto.FarmerDto;
 import org.example.model.entity.District;
 import org.example.model.request.CreateDistrictRequest;
 import org.example.repository.DistrictRepository;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -31,16 +34,14 @@ public class DistrictService {
      * @param code
      * @return Список районов
      */
-    public List<District> getFilteredDistricts(String name, Integer code) {
+    public List<DistrictDto> getFilteredDistricts(String name, Integer code) {
         Specification<District> specification = Specification
                 .where(DistrictSpecifications.hasName(name))
                 .and(DistrictSpecifications.hasCode(code))
                 .and(DistrictSpecifications.isNotArchived());
-        List<District> districts = districtRepository.findAll(specification);
-        if (districts.isEmpty()) {
-            throw new EntityNotFoundException("Список оказался пуст, попробуйте убрать пару фильтров");
-        }
-        return districts;
+        return modelMapper
+                        .map(districtRepository.findAll(specification), new TypeToken<List<DistrictDto>>() {
+                        }.getType());
     }
 
     /**
@@ -50,6 +51,7 @@ public class DistrictService {
      * @return UUID
      */
     public UUID createDistrict(CreateDistrictRequest createDistrictRequest) {
+        validationDistrict(createDistrictRequest);
         District district = modelMapper.map(createDistrictRequest, District.class);
         districtRepository.save(district);
         return district.getId();
@@ -60,30 +62,30 @@ public class DistrictService {
      * Отправить в архив
      *
      * @param districtId
-     * @return UUID
      * @throws org.springframework.web.client.HttpClientErrorException.NotFound
      */
-    public UUID sendToArchive(UUID districtId) {
-        return districtRepository.findById(districtId)
-                .map(district -> {
-                    district.setStatus(true);
-                    districtRepository.save(district);
-                    return districtId;
-                })
-                .orElseThrow(() -> new EntityNotFoundException(String.format("Район с ID %s не найден", districtId)));
+    public void sendToArchive(UUID districtId) {
+        District district = districtRepository.findById(districtId).orElseThrow(() -> new EntityNotFoundException(String.format("Район с ID %s не найден", districtId)));
+        district.setStatus(true);
+        districtRepository.save(district);
     }
 
     /**
      * Изменение в Районе
      *
-     * @param district
-     * @return UUID
+     * @param createDistrictRequest
+     * @param id
      */
-    public UUID editDistrict(District district) {
-        return districtRepository.findById(district.getId())
-                .map(changeDistrict -> {
-                    districtRepository.save(changeDistrict);
-                    return district.getId();
-                        }).orElseThrow(() -> new ValidationException(String.format("Район с ID %s не найден", district.getId())));
+    public void editDistrict(UUID id, CreateDistrictRequest createDistrictRequest) {
+        District district = districtRepository.findById(id).orElseThrow(() -> new ValidationException(String.format("Район с ID %s не найден", id)));
+        validationDistrict(createDistrictRequest);
+        modelMapper.map(createDistrictRequest, district);
+        districtRepository.save(district);
+    }
+
+    private void validationDistrict(CreateDistrictRequest district) {
+        if (district.getName() == null || district.getName().trim().isEmpty()) {
+            throw new ValidationException("Имя является обязательным полем.");
+        }
     }
 }

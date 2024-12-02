@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 @RequiredArgsConstructor
 public enum LegalFormEnum {
-    UR("Юридическое лицо", "ЮР"),
+    UR("Юридическое лицо", "ЮЛ"),
     IP("Индивидуальный предприниматель", "ИП"),
     FL("Физическое лицо", "ФЛ");
 
